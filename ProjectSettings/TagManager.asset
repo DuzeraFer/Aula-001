@@ -7,6 +7,9 @@ TagManager:
   - "Ch\xE3o"
   - Fire
   - Tesouro
+  - Teleporte
+  - ParedeQuebra
+  - Speed
   layers:
   - Default
   - TransparentFX

@@ -6,14 +6,14 @@ public class Movement : MonoBehaviour
 {
     public float movX;
     public float movZ;
-    public float speed;
+    public float speed = 150;
     public float forçaPulo;
     Rigidbody rgdb;
 
     public KeyCode paraFrente;
     public KeyCode paraTras;
     public KeyCode paraDireita;
-    public KeyCode paraEsquerda;
+    public KeyCode paraEsquerda; 
 
     bool podePular = false;
 
@@ -26,6 +26,11 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y <= -1)
+        {
+            transform.position = new Vector3(0, 1, 0);
+        }
+
         #region Primeira maneira de pegar o valor do jogador
         //movX = Input.GetAxis("Horizontal");
         //movZ = Input.GetAxis("Vertical");
