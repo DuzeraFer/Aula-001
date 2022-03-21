@@ -7,6 +7,8 @@ public class ControleBala : MonoBehaviour
     Rigidbody rgbdBala;
     public float speed;
 
+    ParedeQuebra paredeQuebraScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +20,16 @@ public class ControleBala : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "ParedeQuebra")
+        {
+            paredeQuebraScript = collision.gameObject.GetComponent<ParedeQuebra>();
+            paredeQuebraScript.LevarDano();
+        }
+
+        Destroy(gameObject);
     }
 }

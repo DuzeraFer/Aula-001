@@ -10,6 +10,9 @@ TagManager:
   - Teleporte
   - ParedeQuebra
   - Speed
+  - Arma
+  - Bala
+  - Bullet
   layers:
   - Default
   - TransparentFX
