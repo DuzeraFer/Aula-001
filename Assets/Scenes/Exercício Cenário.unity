@@ -1094,8 +1094,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584744671}
-  m_LocalRotation: {x: 0.049346942, y: 0.9060362, z: 0.40558967, w: -0.1102742}
-  m_LocalPosition: {x: 461.00525, y: 111.57939, z: 626.8255}
+  m_LocalRotation: {x: 0.119065076, y: 0.8254088, z: 0.18971404, w: -0.5182012}
+  m_LocalPosition: {x: 336.6457, y: 64.97599, z: 467.26733}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1809,6 +1809,10 @@ PrefabInstance:
       propertyPath: balasNoPenteText
       value: 
       objectReference: {fileID: 2030935222}
+    - target: {fileID: 6500558867922633446, guid: c62a470f617779b449c1262b2cadd3fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6500558867922633469, guid: c62a470f617779b449c1262b2cadd3fe, type: 3}
       propertyPath: balasNoPenteTxt
       value: 

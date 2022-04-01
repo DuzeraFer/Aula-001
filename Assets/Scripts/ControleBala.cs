@@ -13,4 +13,9 @@ public class ControleBala : MonoBehaviour
         rgbdBala = GetComponent<Rigidbody>();
         rgbdBala.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
 }
