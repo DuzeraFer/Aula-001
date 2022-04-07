@@ -22,6 +22,7 @@ public class AviaoController : MonoBehaviour
     public KeyCode direita;
     public float speedAviao = 0;
     public float speedGiro;
+    public float speedGiroHor;
 
     [Header("Player")]
     public GameObject m_player;
@@ -67,15 +68,12 @@ public class AviaoController : MonoBehaviour
 
         if (Input.GetKey(acelerar))
         {
-            speedAviao++;
+            speedAviao += 0.5f;
         }
         if (Input.GetKey(frear) || !Input.GetKey(acelerar))
         {
-            if (speedAviao > 0)
-            {
-                speedAviao = - 0.5f;
-            }
-            if (speedAviao == 0.5f)
+            speedAviao -= 0.5f;
+            if (speedAviao < 0)
             {
                 speedAviao = 0;
             }
@@ -110,7 +108,7 @@ public class AviaoController : MonoBehaviour
         }
 
         transform.Translate(Vector3.down * speedAviao * Time.deltaTime);
-        transform.Rotate(new Vector3(movX * speedGiro * Time.deltaTime, movY * speedGiro * Time.deltaTime, movZ * speedGiro * Time.deltaTime));
+        transform.Rotate(new Vector3(movX * speedGiro * Time.deltaTime, movY * speedGiroHor * Time.deltaTime, movZ * speedGiroHor * Time.deltaTime));
 
         if (!Input.GetKey(acelerar) && transform.position.y > 20 && speedAviao < 100)
         {
