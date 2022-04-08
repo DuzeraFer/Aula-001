@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ControleMira : MonoBehaviour
 {
+    [Header("Laser")]
     public GameObject miraLaser;
     public KeyCode habLaser;
+
+    [Header("Mira")]
+    public Camera cameraMira;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +23,15 @@ public class ControleMira : MonoBehaviour
         if (Input.GetKeyDown(habLaser))
         {
             miraLaser.SetActive(!miraLaser.activeSelf);
+        }
+
+        if (Input.GetButtonDown("1"))
+        {
+            cameraMira.depth = 2;
+        }
+        if (Input.GetButtonUp("1"))
+        {
+            cameraMira.depth = 0;
         }
     }
 }
