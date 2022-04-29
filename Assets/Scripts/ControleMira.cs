@@ -25,11 +25,11 @@ public class ControleMira : MonoBehaviour
             miraLaser.SetActive(!miraLaser.activeSelf);
         }
 
-        if (Input.GetButtonDown("1"))
+        if (Input.GetMouseButtonDown(1))
         {
             cameraMira.depth = 2;
         }
-        if (Input.GetButtonUp("1"))
+        if (Input.GetMouseButtonUp(1))
         {
             cameraMira.depth = 0;
         }

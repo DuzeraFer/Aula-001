@@ -27,6 +27,10 @@ public class AviaoController : MonoBehaviour
     [Header("Player")]
     public GameObject m_player;
 
+    [Header("Gravidade")]
+    public float counter;
+    public bool canAccelerate;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -41,7 +45,26 @@ public class AviaoController : MonoBehaviour
                 Movimento();
             }
         }
-        else inicialSpeedHelice = 1;
+        else inicialSpeedHelice = 0;
+
+        if (RotateHelice() && counter > 0)
+        {
+            counter = counter - Time.deltaTime;
+        }
+
+        if (counter > 0)
+        {
+            canAccelerate = true;
+            rBody.useGravity = false;
+        }
+
+        if (counter < 0)
+        {
+            canAccelerate = false;
+            rBody.useGravity = true;
+
+            inicialSpeedHelice = 0;
+        }
     }
 
     public bool RotateHelice()
@@ -66,7 +89,7 @@ public class AviaoController : MonoBehaviour
         float movX = 0;
         float movY = 0;
 
-        if (Input.GetKey(acelerar))
+        if (Input.GetKey(acelerar) && canAccelerate)
         {
             speedAviao += 0.5f;
         }
@@ -127,6 +150,16 @@ public class AviaoController : MonoBehaviour
             liga = true;
 
             rBody.constraints = RigidbodyConstraints.None;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "RingPlane")
+        {
+                counter = 30f;
+
+            Destroy(other.gameObject);
         }
     }
 }
