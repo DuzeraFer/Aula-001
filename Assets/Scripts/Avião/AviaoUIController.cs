@@ -8,6 +8,8 @@ public class AviaoUIController : MonoBehaviour
     AviaoController aviaoController;
 
     public Text counterText;
+    public Text pointsText;
+    public Text timerAroText;
 
     private void Start()
     {
@@ -25,5 +27,10 @@ public class AviaoUIController : MonoBehaviour
         {
             counterText.text = "0";
         }
+
+        System.TimeSpan time = System.TimeSpan.FromSeconds(ArosGasolina.counterAro);
+        timerAroText.text = time.ToString("mm':'ss");
+
+        pointsText.text = aviaoController.points.ToString();
     }
 }

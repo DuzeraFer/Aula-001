@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ArosGasolina : MonoBehaviour
 {
-    public float counterAro = 300f;
+    public static float counterAro = 300f;
 
     private void Update()
     {

@@ -31,9 +31,13 @@ public class AviaoController : MonoBehaviour
     public float counter;
     public bool canAccelerate;
 
+    [Header("Pontos")]
+    public int points;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
+        points = 0;
     }
 
     void Update()
@@ -157,8 +161,8 @@ public class AviaoController : MonoBehaviour
     {
         if (other.gameObject.tag == "RingPlane")
         {
-                counter = 30f;
-
+            counter = 30f;
+            points++;
             Destroy(other.gameObject);
         }
     }
