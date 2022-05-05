@@ -14,6 +14,9 @@ TagManager:
   - Bala
   - Bullet
   - RingPlane
+  - Coconut
+  - Palmeira
+  - Pedra
   layers:
   - Default
   - TransparentFX
@@ -21,8 +24,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Palmeira
+  - Coconut
   - 
   - 
   - 
