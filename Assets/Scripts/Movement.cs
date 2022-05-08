@@ -26,7 +26,7 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.y <= -1)
+        if (transform.position.y <= -60)
         {
             transform.position = new Vector3(0, 1, 0);
         }
