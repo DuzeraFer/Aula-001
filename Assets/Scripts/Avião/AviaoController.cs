@@ -34,8 +34,11 @@ public class AviaoController : MonoBehaviour
     [Header("Pontos")]
     public int points;
 
+    AviaoSoundController aviaoSoundController;
+
     void Start()
     {
+        aviaoSoundController = GetComponent<AviaoSoundController>();
         rBody = GetComponent<Rigidbody>();
         points = 0;
     }
@@ -68,6 +71,11 @@ public class AviaoController : MonoBehaviour
             rBody.useGravity = true;
 
             inicialSpeedHelice = 0;
+
+            if (aviaoSoundController.isPlaying)
+            {
+                aviaoSoundController.stopEngineSound();
+            }          
         }
     }
 
@@ -81,6 +89,11 @@ public class AviaoController : MonoBehaviour
 
         if (inicialSpeedHelice > (speedHelice / 3))
         {
+            if (!aviaoSoundController.isPlaying)
+            {
+                aviaoSoundController.startEngineSound();
+            }
+            
             return true;
         }
         else

@@ -6,9 +6,9 @@ public class ArosGasolina : MonoBehaviour
 {
     public static float counterAro = 300f;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        counterAro = counterAro - Time.deltaTime;
+        counterAro = counterAro - Time.fixedDeltaTime;
 
         if (counterAro < 0)
         {

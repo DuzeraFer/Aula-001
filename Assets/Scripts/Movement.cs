@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    BolaSoundController bolaSoundController;
+
     public float movX;
     public float movZ;
     public float speed = 150;
@@ -20,6 +22,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        bolaSoundController = GetComponent<BolaSoundController>();
         rgdb = GetComponent<Rigidbody>();
     }
 
@@ -28,6 +31,7 @@ public class Movement : MonoBehaviour
     {
         if (transform.position.y <= -60)
         {
+            bolaSoundController.playSound(2);
             transform.position = new Vector3(0, 1, 0);
         }
 
@@ -100,6 +104,7 @@ public class Movement : MonoBehaviour
         #region Pulo
         if (Input.GetKeyDown(KeyCode.Space) && podePular)
         {
+            bolaSoundController.playSound(1);
             rgdb.AddForce(Vector3.up * forçaPulo, ForceMode.Impulse);
         }
         #endregion

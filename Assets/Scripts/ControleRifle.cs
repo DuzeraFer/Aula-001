@@ -10,11 +10,13 @@ public class ControleRifle : MonoBehaviour
     public KeyCode botaoRecarregar;
 
     PenteArma penteArmaScript;
+    WeaponSoundController weaponSoundController;
 
     // Start is called before the first frame update
     void Start()
     {
         penteArmaScript = GetComponent<PenteArma>();
+        weaponSoundController = GetComponent<WeaponSoundController>();
     }
 
     // Update is called once per frame
@@ -24,6 +26,8 @@ public class ControleRifle : MonoBehaviour
         {
             var b = Instantiate(bala, canoDaArma.transform.position, canoDaArma.transform.rotation);
             Destroy(b, 5);
+
+            weaponSoundController.playSoundTiro();
 
             penteArmaScript.balasNoPente -= 1;
 
